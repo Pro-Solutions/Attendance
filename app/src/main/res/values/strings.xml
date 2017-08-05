@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">AttendanceApp</string>
+    <string name="studentbuttontext">Student</string>
+    <string name="professorbuttontext">Professor</string>
+    <string name="adminbuttontext">Admin</string>
+    <string name="who_you_are">WHO YOU ARE?</string>
+    <string name="sign_upText">Sign up</string>
 </resources>
