@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="#283593"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+
+        tools:context="com.pro_solutions.attendanceapp.MainActivity"
+        android:weightSum="1">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="40dp"
+            android:text="Login"
+            android:textAppearance="?android:textAppearanceLarge"
+            android:textColor="#ffffff"
+            android:textStyle="bold"
+
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="@string/who_you_are"
+            android:textAppearance="?android:textAppearanceSmall"
+            android:textColor="#7986CB"
+            android:textStyle="normal"
+
+            />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+
+            >
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageButton
+
+                    android:id="@+id/adminbutton"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:background="#00000000"
+                    android:padding="5dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/admin"
+
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/adminbuttontext"
+                    android:textAppearance="?android:textAppearanceSmall"
+                    android:textColor="#FF5252"
+                    android:textStyle="normal" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageButton
+
+                    android:id="@+id/professorbutton"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:background="#00000000"
+                    android:padding="5dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/professor"
+
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/professorbuttontext"
+                    android:textAppearance="?android:textAppearanceSmall"
+                    android:textColor="#1DE9B6"
+                    android:textStyle="normal" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageButton
+
+                    android:id="@+id/studentbutton"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:background="#00000000"
+                    android:padding="5dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/student"
+
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/studentbuttontext"
+                    android:textAppearance="?android:textAppearanceSmall"
+                    android:textColor="#FFC107"
+                    android:textStyle="normal" />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="150dp"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+
+            <EditText
+            android:id="@+id/Usernametext"
+            android:layout_width="320dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/edittextstyle"
+            android:ems="10"
+            android:hint="@string/usernameHint"
+            android:inputType="textPersonName"
+            android:textAlignment="center"
+            android:textColor="#ffffff"
+            android:textColorHint="#7986CB"
+
+            />
+
+            <EditText
+            android:id="@+id/Passwordtext"
+            android:layout_width="320dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/edittextstyle"
+            android:ems="10"
+            android:hint="@string/passwordHint"
+            android:inputType="textPassword"
+            android:textAlignment="center"
+            android:textColor="#ffffff"
+            android:textColorHint="#7986CB" />
+
+            <EditText
+            android:id="@+id/ConfirmPasswordtext"
+            android:layout_width="320dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/edittextstyle"
+            android:ems="10"
+            android:hint="@string/confirm_passwordHint"
+            android:inputType="textPassword"
+            android:textAlignment="center"
+            android:textColor="#ffffff"
+            android:textColorHint="#7986CB" />
+
+
+            <Button
+            android:id="@+id/loginbutton"
+            android:layout_width="320dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/buttonstyle"
+            android:text="@string/loginbutton"
+            android:textAppearance="?android:textAppearanceSmall"
+            android:textColor="#ffffff"
+            android:textStyle="bold"
+            />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</ScrollView>

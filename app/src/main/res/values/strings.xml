@@ -5,4 +5,12 @@
     <string name="adminbuttontext">Admin</string>
     <string name="who_you_are">WHO YOU ARE?</string>
     <string name="sign_upText">Sign up</string>
+    <string name="loginhereButton"> LOGIN HERE</string>
+    <string name="already_have_an_accountText">Already have an account?</string>
+    <string name="signupButton">SIGN UP</string>
+    <string name="confirm_passwordHint">Confirm Password</string>
+    <string name="passwordHint">Password</string>
+    <string name="emailHint">Email</string>
+    <string name="usernameHint">Username</string>
+    <string name="loginbutton">LOGIN</string>
 </resources>

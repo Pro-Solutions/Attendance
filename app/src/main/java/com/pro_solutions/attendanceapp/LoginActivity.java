@@ -10,9 +10,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
-
-public class MainActivity extends AppCompatActivity {
-
+public class LoginActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,14 +19,12 @@ public class MainActivity extends AppCompatActivity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_login);
 
         final ImageButton studentbutton=(ImageButton)findViewById(R.id.studentbutton);
         final ImageButton adminbutton=(ImageButton)findViewById(R.id.adminbutton);
         final ImageButton professorbutton=(ImageButton)findViewById(R.id.professorbutton);
-        final Button signupbutton=(Button)findViewById(R.id.signupbutton);
-        final Button loginhere=(Button) findViewById(R.id.loginhere);
-
+        final Button loginbutton=(Button)findViewById(R.id.loginbutton);
 
         adminbutton.setOnClickListener(
                 new ImageButton.OnClickListener()
@@ -69,43 +65,28 @@ public class MainActivity extends AppCompatActivity {
                 }
         );
 
-        signupbutton.setOnClickListener(
+        loginbutton.setOnClickListener(
                 new Button.OnClickListener()
                 {
                     @Override
                     public void onClick(View view) {
-                        Intent signupIntent=new Intent(getApplicationContext(),LoginActivity.class);
-                        startActivity(signupIntent);
-                        Toast.makeText(getApplicationContext(),"Sign up successful!",Toast.LENGTH_SHORT).show();
+                        //Intent loginButtonIntent=new Intent(getApplicationContext(),LoginActivity.class);
+                        //startActivity(loginButtonIntent);
+                        Toast.makeText(getApplicationContext(),"Login successful!",Toast.LENGTH_SHORT).show();
                     }
                 }
         );
-        signupbutton.setOnLongClickListener(
+        loginbutton.setOnLongClickListener(
                 new Button.OnLongClickListener()
                 {
                     @Override
                     public boolean onLongClick(View view)
                     {
-                        Toast.makeText(getApplicationContext(),"Sign up",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(),"LOGIN",Toast.LENGTH_SHORT).show();
                         return true;
                     }
                 }
         );
 
-        loginhere.setOnClickListener(
-                new Button.OnClickListener()
-                {
-                    @Override
-                    public void onClick(View view) {
-                        Toast.makeText(getApplicationContext(),"Login Here!",Toast.LENGTH_SHORT).show();
-                        Intent loginIntent=new Intent(getApplicationContext(),LoginActivity.class);
-                        startActivity(loginIntent);
-
-                    }
-                }
-        );
-
     }
-
-
 }
