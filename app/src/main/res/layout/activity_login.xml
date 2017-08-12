@@ -1,14 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-
-    xmlns:android="http://schemas.android.com/apk/res/android">
-
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:background="#283593"
+        android:background="#ffffff"
         android:gravity="center_horizontal"
         android:orientation="vertical"
 
@@ -23,7 +19,7 @@
             android:layout_marginTop="40dp"
             android:text="Login"
             android:textAppearance="?android:textAppearanceLarge"
-            android:textColor="#ffffff"
+            android:textColor="#000000"
             android:textStyle="bold"
 
             />
@@ -34,7 +30,7 @@
             android:padding="10dp"
             android:text="@string/who_you_are"
             android:textAppearance="?android:textAppearanceSmall"
-            android:textColor="#7986CB"
+            android:textColor="#9E9E9E"
             android:textStyle="normal"
 
             />
@@ -133,13 +129,12 @@
 
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="150dp"
-            android:gravity="center"
-            android:layout_weight="1"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+
+    <LinearLayout
+            android:layout_marginTop="25dp"
+            android:gravity="center_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:orientation="vertical"
             >
 
@@ -153,9 +148,9 @@
             android:hint="@string/usernameHint"
             android:inputType="textPersonName"
             android:textAlignment="center"
-            android:textColor="#ffffff"
-            android:textColorHint="#7986CB"
-
+            android:textColor="#000000"
+            android:textColorHint="#9E9E9E"
+            android:maxLines="1"
             />
 
             <EditText
@@ -168,8 +163,9 @@
             android:hint="@string/passwordHint"
             android:inputType="textPassword"
             android:textAlignment="center"
-            android:textColor="#ffffff"
-            android:textColorHint="#7986CB" />
+            android:textColor="#000000"
+            android:textColorHint="#9E9E9E"
+            android:maxLines="1"    />
 
             <EditText
             android:id="@+id/ConfirmPasswordtext"
@@ -181,15 +177,17 @@
             android:hint="@string/confirm_passwordHint"
             android:inputType="textPassword"
             android:textAlignment="center"
-            android:textColor="#ffffff"
-            android:textColorHint="#7986CB" />
+            android:textColor="#000000"
+            android:textColorHint="#9E9E9E"
+            android:maxLines="1"
+                />
 
 
             <Button
             android:id="@+id/loginbutton"
             android:layout_width="320dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="30dp"
             android:background="@drawable/buttonstyle"
             android:text="@string/loginbutton"
             android:textAppearance="?android:textAppearanceSmall"
@@ -200,6 +198,6 @@
         </LinearLayout>
 
 
-    </LinearLayout>
+</LinearLayout>
 
-</ScrollView>
+
