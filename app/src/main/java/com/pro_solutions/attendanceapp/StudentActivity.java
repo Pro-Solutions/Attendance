@@ -1,9 +1,12 @@
 package com.pro_solutions.attendanceapp;
 
+import android.content.Intent;
+import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
 
 import android.support.v4.app.Fragment;
@@ -11,15 +14,15 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 
-import android.widget.TextView;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.Toast;
 
-public class StudentActivity extends MenuActivity{
+
+public class StudentActivity extends MenuActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
@@ -35,38 +38,156 @@ public class StudentActivity extends MenuActivity{
      * The {@link ViewPager} that will host the section contents.
      */
     private ViewPager mViewPager;
+    private DrawerLayout drawerLayout;
+    private ActionBarDrawerToggle toggle;
+    private NavigationView navigationView;
+
+
+    boolean msgcheck=false;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_student);
+        setContentView(R.layout.activity_main_student);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.studentToolbar);
         setSupportActionBar(toolbar);
+
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
 
         // Set up the ViewPager with the sections adapter.
-        mViewPager = (ViewPager) findViewById(R.id.container);
+        mViewPager = (ViewPager) findViewById(R.id.studentContainer);
         mViewPager.setAdapter(mSectionsPagerAdapter);
 
-        TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
+        TabLayout tabLayout = (TabLayout) findViewById(R.id.studentTabs);
         tabLayout.setupWithViewPager(mViewPager);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+
+        drawerLayout=(DrawerLayout)findViewById(R.id.studentDrawer);
+        toggle=new ActionBarDrawerToggle(this,drawerLayout,toolbar,R.string.open,R.string.close);
+        drawerLayout.setDrawerListener(toggle);
+        toggle.syncState();
+//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+
+        final FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.studentFab);
+        final Animation shake= AnimationUtils.loadAnimation(this,R.anim.shake);
+        final Animation frotate= AnimationUtils.loadAnimation(this,R.anim.rotate_forward);
+
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+
+                fab.startAnimation(frotate);
+                //fab.startAnimation(shake);
+
+                msgcheck=true;
+                Thread thread=new Thread()
+                {
+                    @Override
+                    public void run()
+                    {
+                        try
+                        {
+                            sleep(500);
+                        }
+                        catch (InterruptedException e)
+                        {
+                            e.printStackTrace();
+
+                        }
+                        finally
+                        {
+                            startActivity(new Intent(StudentActivity.this,StudentChatActivity.class));
+                        }
+
+                    }
+                };
+                thread.start();
+
+
+                /*Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();*/
             }
         });
+
+
+        fab.startAnimation(shake);
+
+        navigationView = (NavigationView) findViewById(R.id.studentSideNavigationMenu);
+        navigationView.setNavigationItemSelectedListener(this);
+
 
     }
 
 
-/*    @Override
+
+    /*@Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if(toggle.onOptionsItemSelected(item)) {
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }*/
+
+    @Override
+    public void onBackPressed() {
+        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
+            drawerLayout.closeDrawer(GravityCompat.START);
+        } else {
+            super.onBackPressed();
+        }
+
+    }
+
+
+
+    @Override
+    public boolean onNavigationItemSelected(MenuItem item) {
+
+        int id = item.getItemId();
+
+        if (id ==R.id.sideNavMenuShare)
+        {
+
+            Toast.makeText(this, "Share menu is Clicked", Toast.LENGTH_SHORT).show();
+            startActivity(new Intent(this, ShareActivity.class));
+        }
+        else if (id == R.id.sideNavMenuSettings)
+        {
+            Toast.makeText(this, "Settings menu is Clicked", Toast.LENGTH_SHORT).show();
+            startActivity(new Intent(this, SettingsActivity.class));
+        }
+        else if (id == R.id.sideNavMenuAttach)
+        {
+            Toast.makeText(this, "Info menu is Clicked", Toast.LENGTH_SHORT).show();
+            startActivity(new Intent(this, AboutUsActivity.class));
+        }
+        else if (id == R.id.sideNavMenuLogout)
+        {
+            Toast.makeText(this, "LOGOUT", Toast.LENGTH_SHORT).show();
+        }
+        else if (id == R.id.sideNavMenudashboard)
+        {
+            Toast.makeText(this, "Dashboard", Toast.LENGTH_SHORT).show();
+        }
+        else if (id == R.id.sideNavMenuhome)
+        {
+            Toast.makeText(this, "HOME", Toast.LENGTH_SHORT).show();
+        }
+
+        drawerLayout.closeDrawer(GravityCompat.START);
+
+        return true;
+    }
+
+
+    /*    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.commonmenus, menu);

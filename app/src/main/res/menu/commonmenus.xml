@@ -9,8 +9,9 @@
     <item android:title="About us"
         app:showAsAction="ifRoom"
         android:icon="@drawable/ic_attach"
-        android:id="@+id/mnuAttach" />
+        android:id="@+id/mnuAboutus" />
     <item android:title="Settings"
         app:showAsAction="never"
         android:id="@+id/mnuSettings" />
+
 </menu>

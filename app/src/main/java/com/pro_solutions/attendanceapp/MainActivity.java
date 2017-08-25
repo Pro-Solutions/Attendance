@@ -10,11 +10,17 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
+    private ImageButton studentbutton;
+    private ImageButton adminbutton;
+    private ImageButton professorbutton;
+    private Button signupbutton;
+    private TextView loginhere;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,66 +31,21 @@ public class MainActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_main);
 
-        final ImageButton studentbutton=(ImageButton)findViewById(R.id.studentbutton);
-        final ImageButton adminbutton=(ImageButton)findViewById(R.id.adminbutton);
-        final ImageButton professorbutton=(ImageButton)findViewById(R.id.professorbutton);
-        final Button signupbutton=(Button)findViewById(R.id.signupbutton);
-        final Button loginhere=(Button) findViewById(R.id.loginhere);
+        studentbutton=(ImageButton)findViewById(R.id.studentbutton);
+        adminbutton=(ImageButton)findViewById(R.id.adminbutton);
+        professorbutton=(ImageButton)findViewById(R.id.professorbutton);
+        signupbutton=(Button)findViewById(R.id.signupbutton);
+        loginhere=(TextView)findViewById(R.id.loginhere);
+
+        studentbutton.setOnClickListener(this);
+        adminbutton.setOnClickListener(this);
+        professorbutton.setOnClickListener(this);
+        signupbutton.setOnClickListener(this);
+        loginhere.setOnClickListener(this);
 
         //final EditText Emailtext=(EditText) findViewById(R.id.Emailtext);
         //Emailtext.getUrls();
 
-
-        adminbutton.setOnClickListener(
-                new ImageButton.OnClickListener()
-                {
-                    @Override
-                    public void onClick(View view) {
-
-                        adminbutton.setImageResource(R.drawable.check);
-                        studentbutton.setImageResource(R.drawable.student);
-                        professorbutton.setImageResource(R.drawable.professor);
-
-                    }
-                }
-        );
-
-        professorbutton.setOnClickListener(
-                new ImageButton.OnClickListener()
-                {
-                    @Override
-                    public void onClick(View view) {
-
-                        adminbutton.setImageResource(R.drawable.admin);
-                        studentbutton.setImageResource(R.drawable.student);
-                        professorbutton.setImageResource(R.drawable.check);
-                    }
-                }
-        );
-
-        studentbutton.setOnClickListener(
-                new ImageButton.OnClickListener()
-                {
-                    @Override
-                    public void onClick(View view) {
-                        adminbutton.setImageResource(R.drawable.admin);
-                        studentbutton.setImageResource(R.drawable.check);
-                        professorbutton.setImageResource(R.drawable.professor);
-                    }
-                }
-        );
-
-        signupbutton.setOnClickListener(
-                new Button.OnClickListener()
-                {
-                    @Override
-                    public void onClick(View view) {
-                        Intent signupIntent=new Intent(getApplicationContext(),LoginActivity.class);
-                        startActivity(signupIntent);
-                        Toast.makeText(getApplicationContext(),"Sign up successful!",Toast.LENGTH_SHORT).show();
-                    }
-                }
-        );
         signupbutton.setOnLongClickListener(
                 new Button.OnLongClickListener()
                 {
@@ -97,21 +58,39 @@ public class MainActivity extends AppCompatActivity {
                 }
         );
 
-        loginhere.setOnClickListener(
-                new Button.OnClickListener()
-                {
-                    @Override
-                    public void onClick(View view) {
-                        Toast.makeText(getApplicationContext(),"Login Here!",Toast.LENGTH_SHORT).show();
-                        Intent loginIntent=new Intent(getApplicationContext(),LoginActivity.class);
-                        startActivity(loginIntent);
-                        finish();
-
-                    }
-                }
-        );
 
     }
 
 
+    @Override
+    public void onClick(View view) {
+
+        if(view==loginhere){
+            finish();
+            startActivity(new Intent(getApplicationContext(),LoginActivity.class));
+            Toast.makeText(getApplicationContext(),"Login Here!",Toast.LENGTH_SHORT).show();
+        }
+        if(view==signupbutton){
+            finish();
+            startActivity(new Intent(getApplicationContext(),LoginActivity.class));
+            Toast.makeText(getApplicationContext(),"Sign up successful!",Toast.LENGTH_SHORT).show();
+        }
+        if(view==adminbutton){
+            adminbutton.setImageResource(R.drawable.check);
+            studentbutton.setImageResource(R.drawable.student);
+            professorbutton.setImageResource(R.drawable.professor);
+        }
+        if(view==studentbutton){
+
+            adminbutton.setImageResource(R.drawable.admin);
+            studentbutton.setImageResource(R.drawable.check);
+            professorbutton.setImageResource(R.drawable.professor);
+        }
+        if(view==professorbutton){
+            adminbutton.setImageResource(R.drawable.admin);
+            studentbutton.setImageResource(R.drawable.student);
+            professorbutton.setImageResource(R.drawable.check);
+        }
+
+    }
 }

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group>
+        <item
+            android:id="@+id/sideNavMenuShare"
+            android:icon="@drawable/ic_share"
+            android:title="Share" />
+
+        <item
+            android:id="@+id/sideNavMenuAttach"
+            android:icon="@drawable/ic_attach"
+            android:title="About us" />
+        <item
+            android:id="@+id/sideNavMenuSettings"
+            android:icon="@drawable/ic_settings"
+            android:title="Settings" />
+    </group>
+
+    <item android:title="Account">
+        <menu>
+
+            <item
+
+                android:id="@+id/sideNavMenuhome"
+                android:icon="@drawable/ic_home_black_24dp"
+                android:title="@string/title_home" />
+            <item
+
+                android:id="@+id/sideNavMenudashboard"
+                android:icon="@drawable/ic_dashboard_black_24dp"
+                android:title="@string/title_dashboard" />
+            <item
+
+                android:id="@+id/sideNavMenuLogout"
+                android:icon="@drawable/ic_logout"
+                android:title="Log out" />
+        </menu>
+    </item>
+</menu>

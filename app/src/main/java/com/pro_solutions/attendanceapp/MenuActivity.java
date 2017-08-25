@@ -3,7 +3,6 @@ package com.pro_solutions.attendanceapp;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
@@ -33,9 +32,9 @@ public class MenuActivity extends AppCompatActivity {
             Toast.makeText(this, "Share menu is Clicked", Toast.LENGTH_SHORT).show();
             startActivity(new Intent(this, ShareActivity.class));
 
-        } else if (id == R.id.mnuAttach) {
-            Toast.makeText(this, "Attach menu is Clicked", Toast.LENGTH_SHORT).show();
-            startActivity(new Intent(this, AttachActivity.class));
+        } else if (id == R.id.mnuAboutus) {
+            Toast.makeText(this, "Info menu is Clicked", Toast.LENGTH_SHORT).show();
+            startActivity(new Intent(this, AboutUsActivity.class));
 
 
         } else if (id == R.id.mnuSettings) {

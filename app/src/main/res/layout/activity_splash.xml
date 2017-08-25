@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -7,46 +8,71 @@
     android:layout_height="match_parent"
     tools:context="com.pro_solutions.attendanceapp.SplashActivity"
 
+
     android:background="@color/colorPrimary"
     android:orientation="vertical"
     >
 
     <ImageView
-        android:layout_marginTop="50dp"
-        android:layout_gravity="center"
+        android:id="@+id/splashImage"
+        android:layout_centerInParent="true"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:src="@drawable/launcher__icon"
-
         android:scaleType="centerCrop"
         android:padding="10dp"
         />
+
+
     <TextView
+        android:layout_centerHorizontal="true"
+        android:layout_above="@+id/splashImage"
         android:textStyle="bold"
-        android:layout_gravity="center"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="ATTENDANCE"
         android:textColor="#ffff"
+        android:id="@+id/textAttendance"
         android:textAppearance="?android:textAppearanceLarge"
         />
     <TextView
+        android:layout_marginBottom="20dp"
         android:textStyle="bold"
-        android:layout_gravity="center"
+        android:layout_below="@+id/splashImage"
+        android:layout_centerHorizontal="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="APP"
+        android:id="@+id/textApp"
         android:textColor="#ffff"
         android:textAppearance="?android:textAppearanceLarge"
         />
 
+
     <ProgressBar
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_width="200dp"
+        android:layout_height="6dp"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_marginBottom="100dp"
+        android:progress="70"
+        android:progressDrawable="@drawable/custom_progress"
+        android:background="#ffffff"
+
+        android:id="@+id/progressBar"
+        />
+
+    <!--<ProgressBar
         android:id="@+id/progressBar"
         style="?android:attr/progressBarStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="250dp" />
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:padding="60dp"
+
+         />-->
 
 
-</LinearLayout>
+</RelativeLayout>

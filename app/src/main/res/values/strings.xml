@@ -1,12 +1,16 @@
 <resources>
     <string name="app_name">AttendanceApp</string>
+    <string name="open">Open</string>
+    <string name="close">Close</string>
+
+
     <string name="studentbuttontext">Student</string>
     <string name="professorbuttontext">Professor</string>
     <string name="adminbuttontext">Admin</string>
     <string name="who_you_are">WHO YOU ARE?</string>
     <string name="sign_upText">Sign up</string>
     <string name="loginhereButton"> LOGIN HERE</string>
-    <string name="already_have_an_accountText">Already have an account?</string>
+    <string name="already_have_an_accountText">Already have an account? Login here.</string>
     <string name="signupButton">SIGN UP</string>
     <string name="confirm_passwordHint">Confirm Password</string>
     <string name="passwordHint">Password</string>
@@ -23,6 +27,11 @@
     <string name="fb_login_protocol_scheme">
         fb1928191460782772
     </string>
+    <string name="title_activity_student_chat">StudentChatActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="not_registered">Not Registered? Register Now!</string>
 
 
 </resources>
